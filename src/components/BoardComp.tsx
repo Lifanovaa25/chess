@@ -12,7 +12,7 @@ const BoardComp:FC<BoardProps> = ({board}) => {
       {board.cells.map((row, index) => (
         <React.Fragment key={index}>
           {row.map((cell) => (
-            <CellComp />
+            <CellComp  cell={cell} key={cell.id}/>
           ))}
         </React.Fragment>
       ))}
