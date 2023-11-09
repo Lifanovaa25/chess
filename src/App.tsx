@@ -4,18 +4,19 @@ import { Board } from "./models/Board";
 
 const App = () => {
   const [board, setBoard] = useState(new Board());
-useEffect(()=>{
-  restart()
-},[])
+  useEffect(() => {
+    restart();
+  }, []);
 
   function restart() {
     const newBoard = new Board();
     newBoard.initCells();
-    setBoard(newBoard)
+    newBoard.addFigures();
+    setBoard(newBoard);
   }
   return (
     <div className="app">
-      <BoardComp board={board} setBoard={setBoard}/>
+      <BoardComp board={board} setBoard={setBoard} />
     </div>
   );
 };
