@@ -8,16 +8,30 @@ export class Cell {
   readonly color: Colors;
   figure: Figure | null;
   board: Board;
-  available: boolean;//Можешь ли переместиться
-  id:number;//реакт ключи
+  available: boolean; //Можешь ли переместиться
+  id: number; //реакт ключи
 
-  constructor (board:Board, y:number, x:number, color: Colors,figure:Figure|null){
-    this.x =x;
-    this.y=y;
+  constructor(
+    board: Board,
+    y: number,
+    x: number,
+    color: Colors,
+    figure: Figure | null
+  ) {
+    this.x = x;
+    this.y = y;
     this.color = color;
     this.figure = figure;
     this.board = board;
     this.available = false;
-    this.id=Math.random();
+    this.id = Math.random();
+  }
+
+  moveFigure(target: Cell) {
+    if (this.figure && this.figure?.canMove(target)) {
+      this.figure.moveFigure(target);
+      target.figure = this.figure;
+      this.figure = null
+    }
   }
 }

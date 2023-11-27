@@ -32,6 +32,7 @@ export class Figure {
   }
 
   moveFigure(target:Cell){
+    // return true;
     
   }
 }
