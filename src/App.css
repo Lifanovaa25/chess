@@ -29,7 +29,8 @@
     position: relative;
 }
 .black {
-    background-color: rgb(33, 34, 48);
+    /* background-color: rgb(33, 34, 48); */
+    background-color: #227bd5;
 }
 .white {
     background-color: #eed4ac;
