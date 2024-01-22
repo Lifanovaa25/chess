@@ -1,99 +1,85 @@
 * {
   margin: 0;
   padding: 0;
+  // box-sizing: border-box;
 }
-
 @font-face {
-  font-family: "SpaceGrotesk";
-  src: url("../src/assets/fonts/SpaceGrotesk-VariableFont_wght.ttf");
+  font-family: 'SpaceGrotesk';
+  src: url('../src/assets/fonts/SpaceGrotesk-VariableFont_wght.ttf');
 }
 body {
-  background: #000;
+  background: #000
 }
-
 .app {
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 25px;
-}
-@media (max-width: 500px) {
-  .app {
-    gap: 15px;
+  gap:25px;
+  @media (max-width: 500px) {
+  gap:15px;
   }
 }
-
 .board {
-  width: 512px;
-  height: 512px;
+  width: calc(64px * 8);
+  height: calc(64px * 8);
   display: flex;
   flex-wrap: wrap;
   border: 20px solid #eed4ac;
-}
-@media (max-width: 500px) {
-  .board {
-    width: 280px;
-    height: 280px;
+  @media (max-width: 500px) {
+    width: calc(35px * 8);
+    height: calc(35px * 8);
   }
 }
-
 .cell {
   width: 64px;
   height: 64px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-@media (max-width: 500px) {
-  .cell {
+  @media (max-width: 500px) {
     width: 35px;
     height: 35px;
   }
 }
-
 .cell img {
   width: 48px;
   height: 48px;
   position: relative;
-}
-@media (max-width: 500px) {
-  .cell img {
+  @media (max-width: 500px) {
     width: 24px;
     height: 24px;
   }
 }
-
 .black {
   background-color: rgba(35, 36, 45, 0.475);
+  // background-color: #227bd5;
 }
-
 .white {
   background-color: #d0ae7b;
 }
-
 .selected {
   background-color: brown;
 }
-
 .available {
   height: 12px;
   width: 12px;
   border-radius: 50%;
   background-color: rgb(8, 84, 8);
 }
-
 .lost {
   height: calc(50vh - 60px);
   padding: 30px;
   margin-left: 50px;
   background-color: lightgray;
 }
-
 .timer {
-  font-family: "SpaceGrotesk";
+  // color: #fff;
+  font-family: 'SpaceGrotesk';
   padding: 5px;
   border-radius: 12px;
   background: #eed4ac;
-}/*# sourceMappingURL=App.css.map */
+ 
+
+}
