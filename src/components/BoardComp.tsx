@@ -56,18 +56,24 @@ const BoardComp: FC<BoardProps> = ({
       <div className="board">
         {board.cells.map((row, index) => (
           <React.Fragment key={index}>
-            {index == 0 &&( <div  className="cell_index">{row.map((cell) =>(<div className="cell">{cell.x +1 }</div>))}</div>)}
-           <div  className="cell_index_y">{row.map((cell) =>( cell.y==0 ? <div className="cell">{cell.x +1 }</div> :''
-           )) }
-           </div>
+            {index == 0 && (
+              <div className="cell_index">
+                {row.map((cell) => (
+                  <div className="cell">{cell.x + 1}</div>
+                ))}
+              </div>
+            )}
+            <div className="cell_index_y">
+              {row.map((cell) =>
+                cell.y == 0 ? <div className="cell">{cell.x + 1}</div> : ""
+              )}
+            </div>
 
             {row.map((cell) => (
               <CellComp
                 click={click}
                 cell={cell}
                 key={cell.id}
-                x={cell.x}
-                y={cell.y}
                 selected={
                   cell.x === selectedCell?.x && cell.y === selectedCell?.y
                 }
