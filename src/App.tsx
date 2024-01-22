@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import BoardComp from "./components/BoardComp";
 import { Board } from "./models/Board";
 import { Player } from "./models/Player";
