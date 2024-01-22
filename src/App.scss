@@ -147,7 +147,7 @@ button {
   }
 }
 
-@media (orientation: landscape) {
+@media (max-width: 500px)  and (orientation: landscape) {
   .timer {
     font-size: 12px;
   }
