@@ -170,4 +170,19 @@ button:hover {
   .timer {
     font-size: 12px;
   }
+  .app {
+    gap: 20px;
+  }
+  .board {
+    width: 280px;
+    height: 280px;
+  }
+  .cell {
+    width: 35px;
+    height: 35px;
+  }
+  .cell img {
+    width: 24px;
+    height: 24px;
+  }
 }/*# sourceMappingURL=App.css.map */

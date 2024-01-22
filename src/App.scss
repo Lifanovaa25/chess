@@ -147,6 +147,23 @@ button {
   }
 }
 
-@media (orientation:landscape) { .timer {
-      font-size: 12px;
-    } }
+@media (orientation: landscape) {
+  .timer {
+    font-size: 12px;
+  }
+  .app {
+    gap: 20px;
+  }
+  .board {
+    width: calc(35px * 8);
+    height: calc(35px * 8);
+  }
+  .cell{
+    width: 35px;
+    height: 35px;
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
