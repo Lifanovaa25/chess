@@ -89,9 +89,27 @@ body {
 }
 .lost {
   height: calc(30vh - 60px);
+  width: 180px;
+  max-width: 180px;
   padding: 30px;
-  margin-left: 50px;
-  background-color: lightgray;
+  // margin-left: 50px;
+  color: #3e2b04;
+  font-family: "SpaceGrotesk";
+  font-size: 16px;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  background: #eed4ac;
+  box-shadow: inset -7px -7px 14px 3px rgba(62, 43, 4, 0.5411764706);
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  h3{
+    width: 100%;
+  }
+}
+.fig {
+  display: flex;
 }
 .timer {
   // color: #fff;
@@ -147,7 +165,7 @@ button {
   }
 }
 
-@media (max-width: 500px)  and (orientation: landscape) {
+@media (max-width: 500px) and (orientation: landscape) {
   .timer {
     font-size: 12px;
   }
@@ -158,7 +176,7 @@ button {
     width: calc(35px * 8);
     height: calc(35px * 8);
   }
-  .cell{
+  .cell {
     width: 35px;
     height: 35px;
     img {
