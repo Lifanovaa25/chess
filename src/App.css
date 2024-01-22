@@ -112,6 +112,7 @@ body {
 }
 
 .timer {
+  color: #3e2b04;
   font-family: "SpaceGrotesk";
   font-size: 16px;
   padding: 5px;
@@ -120,6 +121,11 @@ body {
   border-radius: 12px;
   background: #eed4ac;
   box-shadow: inset -7px -7px 14px 3px rgba(62, 43, 4, 0.5411764706);
+}
+@media (max-width: 500px) {
+  .timer {
+    font-size: 12px;
+  }
 }
 
 button {
@@ -155,5 +161,8 @@ button:hover {
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  }
+  body .timer {
+    font-size: 12px;
   }
 }/*# sourceMappingURL=App.css.map */
