@@ -165,4 +165,9 @@ button:hover {
   body .timer {
     font-size: 12px;
   }
+}
+@media (orientation: landscape) {
+  .timer {
+    font-size: 12px;
+  }
 }/*# sourceMappingURL=App.css.map */
