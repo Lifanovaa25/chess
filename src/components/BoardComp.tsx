@@ -3,6 +3,7 @@ import { Board } from "../models/Board";
 import CellComp from "./CellComp";
 import { Cell } from "../models/Cell";
 import { Player } from "../models/Player";
+import React from "react";
 
 interface BoardProps {
   board: Board;
@@ -10,15 +11,24 @@ interface BoardProps {
   currentPlayer: Player | null;
   swapPlayer: () => void;
 }
-const BoardComp: FC<BoardProps>  = ({board, setBoard, currentPlayer, swapPlayer}) => {
+const BoardComp: FC<BoardProps> = ({
+  board,
+  setBoard,
+  currentPlayer,
+  swapPlayer,
+}) => {
   const [selectedCell, setSelectedCell] = useState<Cell | null>(null);
 
   function click(cell: Cell) {
-    if (selectedCell && selectedCell !== cell && selectedCell.figure?.canMove(cell)) {
+    if (
+      selectedCell &&
+      selectedCell !== cell &&
+      selectedCell.figure?.canMove(cell)
+    ) {
       selectedCell.moveFigure(cell);
-      swapPlayer()
+      swapPlayer();
       setSelectedCell(null);
-      updateBoard()
+      updateBoard();
     } else {
       if (cell.figure?.color === currentPlayer?.color) {
         setSelectedCell(cell);
@@ -27,35 +37,44 @@ const BoardComp: FC<BoardProps>  = ({board, setBoard, currentPlayer, swapPlayer}
   }
 
   useEffect(() => {
-    highlightCells()
-  }, [selectedCell])
+    highlightCells();
+  }, [selectedCell]);
 
   function highlightCells() {
-    board.highlightCells(selectedCell)
-    updateBoard()
+    board.highlightCells(selectedCell);
+    updateBoard();
   }
 
   function updateBoard() {
-    const newBoard = board.getCopyBoard()
-    setBoard(newBoard)
+    const newBoard = board.getCopyBoard();
+    setBoard(newBoard);
   }
 
   return (
     <div>
-      <h3>Текущий игрок {currentPlayer?.color}</h3>
+      <h3 className="player">Текущий игрок {currentPlayer?.color}</h3>
       <div className="board">
-        {board.cells.map((row, index) =>
+        {board.cells.map((row, index) => (
           <React.Fragment key={index}>
-            {row.map(cell =>
+            {index == 0 &&( <div  className="cell_index">{row.map((cell) =>(<div className="cell">{cell.x +1 }</div>))}</div>)}
+           <div  className="cell_index_y">{row.map((cell) =>( cell.y==0 ? <div className="cell">{cell.x +1 }</div> :''
+           )) }
+           </div>
+
+            {row.map((cell) => (
               <CellComp
                 click={click}
                 cell={cell}
                 key={cell.id}
-                selected={cell.x === selectedCell?.x && cell.y === selectedCell?.y}
+                x={cell.x}
+                y={cell.y}
+                selected={
+                  cell.x === selectedCell?.x && cell.y === selectedCell?.y
+                }
               />
-            )}
+            ))}
           </React.Fragment>
-        )}
+        ))}
       </div>
     </div>
   );

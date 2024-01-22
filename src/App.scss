@@ -4,11 +4,11 @@
   // box-sizing: border-box;
 }
 @font-face {
-  font-family: 'SpaceGrotesk';
-  src: url('../src/assets/fonts/SpaceGrotesk-VariableFont_wght.ttf');
+  font-family: "SpaceGrotesk";
+  src: url("../src/assets/fonts/SpaceGrotesk-VariableFont_wght.ttf");
 }
 body {
-  background: #000
+  background: #000;
 }
 .app {
   width: 100vw;
@@ -16,9 +16,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap:25px;
+  gap: 25px;
   @media (max-width: 500px) {
-  gap:15px;
+    gap: 15px;
   }
 }
 .board {
@@ -27,9 +27,27 @@ body {
   display: flex;
   flex-wrap: wrap;
   border: 20px solid #eed4ac;
+  position: relative;
   @media (max-width: 500px) {
     width: calc(35px * 8);
     height: calc(35px * 8);
+  }
+}
+.cell_index {
+  position: absolute;
+  top: -20px;
+  display: flex;
+  > div {
+    height: 20px;
+  }
+}
+.cell_index_y {
+  position: absolute;
+  display: flex;
+  flex-direction: column-reverse;
+  left: -20px;
+  > div {
+    width: 20px;
   }
 }
 .cell {
@@ -53,8 +71,9 @@ body {
   }
 }
 .black {
-  background-color: rgba(35, 36, 45, 0.475);
+  // background-color: rgba(35, 36, 45, 0.475);
   // background-color: #227bd5;
+  background-color: #3e2b04;
 }
 .white {
   background-color: #d0ae7b;
@@ -69,17 +88,54 @@ body {
   background-color: rgb(8, 84, 8);
 }
 .lost {
-  height: calc(50vh - 60px);
+  height: calc(30vh - 60px);
   padding: 30px;
   margin-left: 50px;
   background-color: lightgray;
 }
 .timer {
   // color: #fff;
-  font-family: 'SpaceGrotesk';
+  font-family: "SpaceGrotesk";
+  font-size: 16px;
   padding: 5px;
+  width: 180px;
+  box-sizing: border-box;
   border-radius: 12px;
   background: #eed4ac;
- 
+  box-shadow: inset -7px -7px 14px 3px rgba(62, 43, 4, 0.5411764706);
+}
 
+button {
+  border-radius: 12px;
+  border: 1px solid #3e2b04;
+  padding: 5px;
+  box-sizing: border-box;
+  font-family: "SpaceGrotesk";
+  color: #3e2b04;
+  font-weight: 700;
+  font-size: 18px;
+  background: #d0ae7b;
+  box-shadow: inset 0px -1px 5px 1px #3e2b048a;
+  transition: all 0.5s;
+  &:hover {
+    box-shadow: inset 0px -1px 5px 1px #d0ae7b;
+    background: #3e2b04;
+    border: 1px solid #d0ae7b;
+
+    color: #d0ae7b;
+  }
+}
+.player {
+  font-family: "SpaceGrotesk";
+  color: #d0ae7b;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+@media (max-width: 500px) {
+  body {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  }
 }

@@ -98,7 +98,7 @@ export class Cell {
     if (this.figure && this.figure?.canMove(target)) {
       this.figure.moveFigure(target);
       if (target.figure) {
-        console.log(target.figure);
+        // console.log(target.figure);
         this.addLostFigure(target.figure);
       }
       target.setFigure(this.figure);
