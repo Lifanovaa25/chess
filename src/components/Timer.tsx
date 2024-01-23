@@ -14,7 +14,7 @@ const Timer: FC<TimerProps> = ({ currentPlayer, restart }) => {
   const timer = useRef<null | ReturnType<typeof setInterval>>(null);
 
   useEffect(() => {
-    if (startTime == false ) {
+    if (startTime) {
       startTimer();
     }
   }, [currentPlayer]);
@@ -52,9 +52,9 @@ const Timer: FC<TimerProps> = ({ currentPlayer, restart }) => {
   return (
     <div className="timer">
       <div>
-        <button onClick={handleRestart}>
+      {!startTime && <button onClick={handleRestart}>
           {startTime ? "Restart game" : "Start game"}
-        </button>
+        </button>}
       </div>
       <h2>Черные - {blackTime}</h2>
       <h2>Белые - {whiteTime}</h2>
