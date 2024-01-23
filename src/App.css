@@ -21,7 +21,11 @@ body {
 }
 @media (max-width: 500px) {
   .app {
+    padding: 25px;
     gap: 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
   }
 }
 
@@ -32,11 +36,13 @@ body {
   flex-wrap: wrap;
   border: 20px solid #eed4ac;
   position: relative;
+  border-radius: 8px;
 }
 @media (max-width: 500px) {
   .board {
-    width: 280px;
-    height: 280px;
+    width: 360px;
+    height: 360px;
+    margin: 0 auto;
   }
 }
 
@@ -68,8 +74,8 @@ body {
 }
 @media (max-width: 500px) {
   .cell {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
   }
 }
 
@@ -125,6 +131,17 @@ body {
   width: 100%;
 }
 
+@media (max-width: 500px) {
+  .lost {
+    height: 50px;
+    width: calc(100vw - 25px);
+    max-width: calc(100vw - 25px);
+    margin: 10px auto;
+  }
+  div {
+    width: 100%;
+  }
+}
 .fig {
   display: flex;
 }
@@ -175,16 +192,11 @@ button:hover {
 }
 
 @media (max-width: 500px) {
-  body {
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-  }
-  body .timer {
+  .timer {
     font-size: 12px;
   }
 }
-@media (max-width: 500px) and (orientation: landscape) {
+@media (max-width: 932px) and (orientation: landscape) {
   .timer {
     font-size: 12px;
   }
@@ -202,5 +214,20 @@ button:hover {
   .cell img {
     width: 24px;
     height: 24px;
+  }
+  .fig {
+    overflow-x: scroll;
+  }
+  .fig::-webkit-scrollbar {
+    width: 2px;
+    height: 8px;
+  }
+  .fig::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom right, #3e2b04 0%, #ead1a9 100%);
+    border-radius: 5px;
+  }
+  .fig::-webkit-scrollbar-track {
+    background: #080500;
+    border-radius: 5px;
   }
 }/*# sourceMappingURL=App.css.map */

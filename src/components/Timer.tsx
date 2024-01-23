@@ -10,10 +10,13 @@ interface TimerProps {
 const Timer: FC<TimerProps> = ({ currentPlayer, restart }) => {
   const [blackTime, setBlackTime] = useState(300);
   const [whiteTime, setWhiteTime] = useState(300);
+  const [startTime, setStartTime] = useState(false);
   const timer = useRef<null | ReturnType<typeof setInterval>>(null);
 
   useEffect(() => {
-    startTimer();
+    if (startTime == false ) {
+      startTimer();
+    }
   }, [currentPlayer]);
 
   function startTimer() {
@@ -35,15 +38,23 @@ const Timer: FC<TimerProps> = ({ currentPlayer, restart }) => {
   }
 
   const handleRestart = () => {
-    setWhiteTime(300);
-    setBlackTime(300);
-    restart();
+    if (startTime) {
+      setWhiteTime(300);
+      setBlackTime(300);
+      setStartTime(!!startTime);
+      restart();
+    } else {
+      setStartTime(!startTime);
+      startTimer();
+    }
   };
 
   return (
     <div className="timer">
       <div>
-        <button onClick={handleRestart}>Restart game</button>
+        <button onClick={handleRestart}>
+          {startTime ? "Restart game" : "Start game"}
+        </button>
       </div>
       <h2>Черные - {blackTime}</h2>
       <h2>Белые - {whiteTime}</h2>
