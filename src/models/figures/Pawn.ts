@@ -1,8 +1,8 @@
 import { Figure, FigureNames } from "./Figure";
 import { Cell } from "../Cell";
 import { Colors } from "../Colors";
-import blackLogo from "../../assets/black-pawn.png";
-import whiteLogo from "../../assets/white-pawn.png";
+import blackLogo from "../../assets/black-pawn.svg";
+import whiteLogo from "../../assets/white-pawn.svg";
 export class Pawn extends Figure {
   isFirstStep: boolean = true;
 
