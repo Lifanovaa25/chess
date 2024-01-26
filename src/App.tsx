@@ -13,6 +13,7 @@ const App = () => {
   const [currentPlayer, setCurrentPlayer] = useState<Player | null>(null);
 
   useEffect(() => {
+    
     restart()
     setCurrentPlayer(whitePlayer);
   }, [])
